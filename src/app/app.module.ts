@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { HeaderModule } from './shared/components/header/header.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { cartReducer } from './ngrx/shopping-cart/shopping-cart.reduser';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      cart: cartReducer
+    }, {}),
     HeaderModule
   ],
   providers: [],
