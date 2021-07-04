@@ -23,7 +23,6 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.route.snapshot.data.products;
-    console.log('fff', this);
   }
 
   addItemToCart(i: number) {
@@ -32,6 +31,5 @@ export class StoreComponent implements OnInit {
       quantity: 1,
     };
     this.store.dispatch(addProduct({ product: item }));
-    console.log('disp');
   }
 }
