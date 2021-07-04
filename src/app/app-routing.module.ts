@@ -9,14 +9,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: '',
-    component: StoreComponent,
-    children: [
-      {
-        path: 'store',
-        loadChildren: () => import('./store/store.module').then((m) => m.StoreModule),
-      },
-    ]
+    path: 'store',
+    loadChildren: () => import('./store/store.module').then((m) => m.StoreModule),
   },
   {
     path:'cart',

@@ -1,17 +1,23 @@
 <div fxLayout="row"
      fxLayoutAlign="space-between center"
-     class="header-container"
->
-  <span>logo</span>
-  <div>
+     class="header-container">
 
-    <p>{{cartItemsQuantity}} items in cart</p>
+  <span>logo</span>
+
+  <div fxLayout="row"
+       fxLayoutAlign="space-between center">
+
+    <span class="cart-status-label">
+      <b>{{cartItemsQuantity}}</b>
+      items in cart
+    </span>
 
     <button
       color="accent"
-      mat-button
+      mat-raised-button
       (click)="goToCart()">
       GO TO CART
     </button>
   </div>
+
 </div>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Black phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/1/2/123123123_11.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Sky phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/3/4/345345345_2_1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Green phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/0/_/0_59_16_1_1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Orange phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/0/_/0_59_11_2_1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "White phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/6/4/6457567567.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Violet phone",
+    "image": "https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/s/m/sm-g996_s21__phantom_violet_back_201110_.jpg"
+  }
+]
