@@ -1,5 +1,30 @@
 <app-loader [isLoading]="isLoading"></app-loader>
 
-<div class="product-container">
+<div class="product-container"
+     fxLayout="row wrap"
+     fxLayoutAlign="start stretch"
+     fxLayoutGap="5px">
+
+  <ng-container *ngIf="products.length">
+
+    <mat-card class="product-card"
+              fxFlex="24"
+              *ngFor="let p of products;let i = index">
+      <mat-card-header>
+        <mat-card-title>{{p.name}}</mat-card-title>
+        <mat-card-subtitle>Cool Phone</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="p.image" alt="Photo of a phone">
+      <mat-card-actions>
+        <button mat-raised-button
+                (click)="addItemToCart(i)"
+                color="accent">
+          ADD TO CART
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </ng-container>
+
 
 </div>

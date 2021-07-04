@@ -5,6 +5,9 @@ import { LoaderModule } from '../shared/components/loader/loader.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductResolver } from './product.resolver';
 import { StoreService } from '../shared/services/store.service';
+import { MatCardModule } from '@angular/material/card';
+import { FlexModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -24,6 +27,9 @@ const routes: Routes = [
     CommonModule,
     LoaderModule,
     RouterModule.forChild(routes),
+    MatCardModule,
+    FlexModule,
+    MatButtonModule,
   ],
   providers: []
 })

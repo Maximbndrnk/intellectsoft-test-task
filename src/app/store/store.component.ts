@@ -21,4 +21,7 @@ export class StoreComponent implements OnInit {
     console.log('fff', this);
   }
 
+  addItemToCart(i: number) {
+    
+  }
 }
