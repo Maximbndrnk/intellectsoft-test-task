@@ -1,14 +1,15 @@
 <div class="app-cart cart-product-container"
-     fxLayout="column"
+     fxLayout="row"
      fxLayoutGap="5px">
 
-  <ng-container *ngIf="products.length">
+  <div *ngIf="products.length">
     <div class="cart-item"
          fxLayout="row"
+         fxFlex
          fxLayoutAlign="start center"
          fxLayoutGap="10px"
-         *ngFor="let p of products;let i = index"
-    >
+         *ngFor="let p of products;let i = index">
+
       <span class="name">{{p.name}}</span>
       <img class="img-preview" [src]="p.image" alt="product">
 
@@ -16,18 +17,32 @@
         <input matInput
                type="number"
                placeholder="Quantity"
-               [value]="p.quantity" (change)="setQuantity($event, p)"
-        >
+               [value]="p.quantity" (change)="setQuantity($event, p)">
       </mat-form-field>
 
       <button mat-raised-button
-              (click)="removeItem(p)"
-      >
+              (click)="removeItem(p)">
         REMOVE
       </button>
-
     </div>
-  </ng-container>
+
+    <div class="m-t-16"
+         fxLayout="row"
+         fxLayoutAlign="center center">
+
+      <button mat-raised-button
+              color="accent"
+              (click)="isOrderFormVisible = true">
+        ORDER ITEMS
+      </button>
+    </div>
+
+  </div>
+
+  <div class="form-container"
+       *ngIf="isOrderFormVisible">
+    form
+  </div>
 
 
 </div>

@@ -2,3 +2,29 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//margins and paddings. e.g: .m-b-8 .p-t-16 .m-l-xs-16
+$spaceamounts: (0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80);
+$sides: (top, bottom, left, right);
+$xs: 599px;
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+    @media (max-width: $xs) {
+      body .m-#{str-slice($side, 0, 1)}-xs-#{$space} {
+        margin-#{$side}: #{$space}px !important;
+      }
+
+      body .p-#{str-slice($side, 0, 1)}-xs-#{$space} {
+        padding-#{$side}: #{$space}px !important;
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@ import { deleteProduct, setProductQuantity } from '../ngrx/shopping-cart/shoppin
 })
 export class CartComponent implements OnInit {
   public products: ICartItem[] = [];
+  public isOrderFormVisible = false;
 
   constructor(
     private store: Store<ICart>,
