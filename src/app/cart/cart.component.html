@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<div class="app-cart cart-product-container"
+     fxLayout="column"
+     fxLayoutGap="5px">
+
+  <ng-container *ngIf="products.length">
+    <div class="cart-item"
+         fxLayout="row"
+         fxLayoutAlign="start center"
+         fxLayoutGap="10px"
+         *ngFor="let p of products;let i = index"
+    >
+      <span class="name">{{p.name}}</span>
+      <img class="img-preview" [src]="p.image" alt="product">
+
+      <mat-form-field appearance="fill">
+        <input matInput
+               type="number"
+               placeholder="Quantity"
+               [value]="p.quantity" (change)="setQuantity($event, p)"
+        >
+      </mat-form-field>
+
+      <button mat-raised-button
+              (click)="removeItem(p)"
+      >
+        REMOVE
+      </button>
+
+    </div>
+  </ng-container>
+
+
+</div>

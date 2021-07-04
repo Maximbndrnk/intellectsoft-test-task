@@ -1,0 +1,19 @@
+@import '../../styling/variables';
+
+.app-cart {
+
+  .img-preview {
+    height: 40px;
+  }
+
+  .cart-item {
+    padding: 5px;
+    border: 1px solid $light-grey;
+    background: $light-grey;
+  }
+
+  .name{
+    width: 200px;
+  }
+
+}
