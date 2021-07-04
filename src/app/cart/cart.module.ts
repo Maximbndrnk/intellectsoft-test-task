@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
     MatButtonModule,
     FlexModule,
     MatInputModule,
+    ReactiveFormsModule,
+    MatStepperModule,
   ]
 })
 export class CartModule { }

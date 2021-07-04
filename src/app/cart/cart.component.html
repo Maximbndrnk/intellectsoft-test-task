@@ -2,47 +2,70 @@
      fxLayout="row"
      fxLayoutGap="5px">
 
-  <div *ngIf="products.length">
-    <div class="cart-item"
-         fxLayout="row"
-         fxFlex
-         fxLayoutAlign="start center"
-         fxLayoutGap="10px"
-         *ngFor="let p of products;let i = index">
+  <mat-stepper linear #stepper>
+    <!--FIRST STEP-->
 
-      <span class="name">{{p.name}}</span>
-      <img class="img-preview" [src]="p.image" alt="product">
+    <mat-step [stepControl]="cartFormArray" [editable]="false">
+      <ng-container *ngFor="let productForm of cartFormArray?.controls; let i = index">
 
-      <mat-form-field appearance="fill">
-        <input matInput
-               type="number"
-               placeholder="Quantity"
-               [value]="p.quantity" (change)="setQuantity($event, p)">
-      </mat-form-field>
+        <form               [formGroup]="productFormFromCartArray(i)">
+          <ng-template matStepLabel>Shopping Bag</ng-template>
 
-      <button mat-raised-button
-              (click)="removeItem(p)">
-        REMOVE
-      </button>
-    </div>
+          <div fxLayout="row">
+            <span class="name">{{productForm?.get('name')?.value}}</span>
 
-    <div class="m-t-16"
-         fxLayout="row"
-         fxLayoutAlign="center center">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantity</mat-label>
+              <input matInput
+                     type="number"
+                     formControlName="quantity"
+                     placeholder="quantity"
+                     (change)="setQuantity($event, products[i])"
+                     required>
+            </mat-form-field>
 
-      <button mat-raised-button
-              color="accent"
-              (click)="isOrderFormVisible = true">
-        ORDER ITEMS
-      </button>
-    </div>
+            <button mat-raised-button
+                    (click)="cartFormArray.removeAt(i);removeItem(products[i])">
+              REMOVE
+            </button>
 
-  </div>
+          </div>
 
-  <div class="form-container"
-       *ngIf="isOrderFormVisible">
-    form
-  </div>
+        </form>
+      </ng-container>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+    </mat-step>
+
+    <!--END FIRST STEP-->
+
+
+    <mat-step [stepControl]="secondFormGroup" [editable]="false">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Shipping</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Payment</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
 
 
 </div>
