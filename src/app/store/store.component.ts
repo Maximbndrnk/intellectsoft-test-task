@@ -22,6 +22,6 @@ export class StoreComponent implements OnInit {
   }
 
   addItemToCart(i: number) {
-    
+
   }
 }
