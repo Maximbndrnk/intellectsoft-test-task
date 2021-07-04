@@ -9,6 +9,8 @@ import { HeaderModule } from './shared/components/header/header.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { cartReducer } from './ngrx/shopping-cart/shopping-cart.reduser';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { cartReducer } from './ngrx/shopping-cart/shopping-cart.reduser';
     StoreModule.forRoot({
       cart: cartReducer
     }, {}),
-    HeaderModule
+    HeaderModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
