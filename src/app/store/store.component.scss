@@ -1,4 +1,7 @@
+@import '../../styling/variables';
 
 .product-card {
   margin: 0 0 5px 0;
+  width: 300px;
+  background-color: $card-background-color;
 }
