@@ -7,6 +7,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
     MatInputModule,
     ReactiveFormsModule,
     MatStepperModule,
+    MatCheckboxModule,
   ]
 })
 export class CartModule { }

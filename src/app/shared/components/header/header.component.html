@@ -16,6 +16,7 @@
 
     <button
       color="accent"
+      [disabled]="cartItemsQuantity === 0"
       mat-raised-button
       (click)="goToCart()">
       GO TO CART

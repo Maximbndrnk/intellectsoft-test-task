@@ -1,7 +1,18 @@
+@import './styling/variables';
+
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  background-color: $body-color;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
 //margins and paddings. e.g: .m-b-8 .p-t-16 .m-l-xs-16

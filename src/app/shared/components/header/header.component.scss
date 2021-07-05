@@ -3,7 +3,8 @@
 
 .header-container {
   height: 70px;
-  background-color: $light-grey;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 50%, rgba(165,179,186,1) 100%);
   padding: 0 15px;
 }
 

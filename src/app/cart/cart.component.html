@@ -2,16 +2,18 @@
      fxLayout="row"
      fxLayoutGap="5px">
 
-  <mat-stepper linear #stepper>
+  <mat-stepper linear #stepper class="cart-stepper">
     <!--FIRST STEP-->
 
-    <mat-step [stepControl]="cartFormArray" [editable]="false">
+    <mat-step [stepControl]="cartFormArray" [editable]="true">
       <ng-container *ngFor="let productForm of cartFormArray?.controls; let i = index">
 
-        <form               [formGroup]="productFormFromCartArray(i)">
+        <form [formGroup]="productFormFromCartArray(i)">
           <ng-template matStepLabel>Shopping Bag</ng-template>
 
-          <div fxLayout="row">
+          <div fxLayout="row"
+               fxLayoutAlign="start center"
+               fxLayoutGap="10px">
             <span class="name">{{productForm?.get('name')?.value}}</span>
 
             <mat-form-field appearance="fill">
@@ -25,6 +27,7 @@
             </mat-form-field>
 
             <button mat-raised-button
+                    color="accent"
                     (click)="cartFormArray.removeAt(i);removeItem(products[i])">
               REMOVE
             </button>
@@ -35,37 +38,227 @@
       </ng-container>
 
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button color="accent" mat-raised-button matStepperNext>Next</button>
       </div>
 
     </mat-step>
 
-    <!--END FIRST STEP-->
+    <!--SECOND STEP-->
 
+    <mat-step [stepControl]="shippingAddressFormGroup" [editable]="true">
+      <ng-template matStepLabel>Shipping</ng-template>
+      <form [formGroup]="shippingAddressFormGroup">
 
-    <mat-step [stepControl]="secondFormGroup" [editable]="false">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Shipping</ng-template>
-        <mat-form-field appearance="fill">
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <div fxLayoutGap="10px" fxLayout="column">
+          <h1>Shipping Address</h1>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput
+                   formControlName="firstName"
+                   placeholder="Ex. Valera"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput
+                   formControlName="lastName"
+                   placeholder="Ex. Bobrov"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Address Line</mat-label>
+            <input matInput
+                   formControlName="address1"
+                   placeholder="Address"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput
+                   formControlName="address2"
+                   placeholder="Address">
+          </mat-form-field>
         </div>
+
+        <div fxLayoutGap="10px" fxLayout="row">
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput
+                   formControlName="city"
+                   placeholder="City"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput
+                   formControlName="country"
+                   placeholder="Country"
+                   required>
+          </mat-form-field>
+        </div>
+
+        <div fxLayoutGap="10px" fxLayout="column">
+
+          <mat-form-field appearance="fill">
+            <mat-label>Postal Code</mat-label>
+            <input matInput
+                   maxlength="5"
+                   formControlName="postalCode"
+                   placeholder="Postal Code"
+                   required>
+          </mat-form-field>
+
+          <mat-checkbox formControlName="useSameForBilling">
+            Use Shipping address as billing address
+          </mat-checkbox>
+        </div>
+
       </form>
+      <div class="m-t-24" fxLayoutGap="10px">
+        <button color="accent" mat-raised-button matStepperPrevious>Back</button>
+        <button color="accent" mat-raised-button matStepperNext>Next</button>
+      </div>
+
     </mat-step>
+
+    <!--THIRD STEP-->
+
+    <mat-step [stepControl]="billingAddressFormGroup" [editable]="true">
+      <ng-template matStepLabel>Billing</ng-template>
+      <form [formGroup]="billingAddressFormGroup">
+
+        <div fxLayoutGap="10px" fxLayout="column">
+          <h1>Shipping Address</h1>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput
+                   formControlName="firstName"
+                   placeholder="Ex. Valera"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput
+                   formControlName="lastName"
+                   placeholder="Ex. Bobrov"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Address Line</mat-label>
+            <input matInput
+                   formControlName="address1"
+                   placeholder="Address"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput
+                   formControlName="address2"
+                   placeholder="Address">
+          </mat-form-field>
+        </div>
+
+        <div fxLayoutGap="10px" fxLayout="row">
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput
+                   formControlName="city"
+                   placeholder="City"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput
+                   formControlName="country"
+                   placeholder="Country"
+                   required>
+          </mat-form-field>
+        </div>
+
+        <div fxLayoutGap="10px" fxLayout="column">
+
+          <mat-form-field appearance="fill">
+            <mat-label>Postal Code</mat-label>
+            <input matInput
+                   maxlength="5"
+                   formControlName="postalCode"
+                   placeholder="Postal Code"
+                   required>
+          </mat-form-field>
+        </div>
+
+      </form>
+      <div class="m-t-24" fxLayoutGap="10px">
+        <button color="accent" mat-raised-button matStepperPrevious>Back</button>
+        <button color="accent" mat-raised-button matStepperNext>Next</button>
+      </div>
+
+    </mat-step>
+
+
+    <!--FORTH STEP-->
+
     <mat-step>
       <ng-template matStepLabel>Payment</ng-template>
-      <p>You are now done.</p>
+      <form [formGroup]="paymentFormGroup">
+
+        <div fxLayoutGap="10px" fxLayout="column">
+          <h1>Shipping Address</h1>
+          <mat-form-field appearance="fill">
+            <mat-label>Owner</mat-label>
+            <input matInput
+                   formControlName="owner"
+                   placeholder="Ex. Valera"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Card Number</mat-label>
+            <input matInput
+                   formControlName="cardNumber"
+                   placeholder="xxxx-xxxx-xxxx-xxxx"
+                   maxlength="16"
+                   required>
+          </mat-form-field>
+        </div>
+
+        <div fxLayoutGap="10px" fxLayout="row">
+          <mat-form-field appearance="fill">
+            <mat-label>Expired</mat-label>
+            <input matInput
+                   formControlName="expired"
+                   placeholder="MM/YY"
+                   maxlength="5"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>CVV</mat-label>
+            <input matInput
+                   maxlength="3"
+                   formControlName="code"
+                   placeholder="CVV"
+                   required>
+          </mat-form-field>
+        </div>
+
+
+      </form>
+
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperNext color="accent">Submit Order</button>
+      </div>
+
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done. We will send your goods asap!</p>
+      <div>
+        <a routerLink="/store">
+          <button mat-raised-button color="accent" (click)="resetCart()">Back to store</button>
+        </a>
       </div>
     </mat-step>
-  </mat-stepper>
 
+  </mat-stepper>
 
 </div>

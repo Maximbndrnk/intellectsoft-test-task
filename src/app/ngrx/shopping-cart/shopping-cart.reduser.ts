@@ -3,26 +3,7 @@ import { createReducer, on, props } from '@ngrx/store';
 import { addProduct, clearCart, deleteProduct, setProductQuantity } from './shopping-cart.actions';
 
 export const initialState: ICart = {
-  cart: [
-    {
-      quantity: 2,
-      'id': 1,
-      'name': 'Black phone',
-      'image': 'https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/1/2/123123123_11.jpg'
-    },
-    {
-      quantity: 1,
-      'id': 2,
-      'name': 'Sky phone',
-      'image': 'https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/3/4/345345345_2_1.jpg'
-    },
-    {
-      quantity: 1,
-      'id': 3,
-      'name': 'Green phone',
-      'image': 'https://i.allo.ua/media/catalog/product/cache/3/small_image/212x184/9df78eab33525d08d6e5fb8d27136e95/0/_/0_59_16_1_1.jpg'
-    },
-  ],
+  cart: [],
 };
 
 const _cartReducer = createReducer(
