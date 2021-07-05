@@ -210,6 +210,9 @@
                    formControlName="owner"
                    placeholder="Ex. Valera"
                    required>
+            <mat-error>
+              Name on your credit card
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Card Number</mat-label>
@@ -218,6 +221,9 @@
                    placeholder="xxxx-xxxx-xxxx-xxxx"
                    maxlength="16"
                    required>
+            <mat-error>
+              Use 16 digits
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -229,6 +235,9 @@
                    placeholder="MM/YY"
                    maxlength="5"
                    required>
+            <mat-error>
+              Please fill in like 12/23
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>CVV</mat-label>
@@ -237,6 +246,9 @@
                    formControlName="code"
                    placeholder="CVV"
                    required>
+            <mat-error>
+              Use 3 digits
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -244,7 +256,12 @@
       </form>
 
       <div>
-        <button mat-button matStepperNext color="accent">Submit Order</button>
+        <button mat-button
+                matStepperNext
+                color="accent"
+                [disabled]="paymentFormGroup.invalid">
+          Submit Order
+        </button>
       </div>
 
     </mat-step>
